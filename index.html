@@ -12,19 +12,32 @@
     <div class="container">
         <div class="flex-block">
             <div class="wrapperBlock">
-                <h1 class="mainTitle">Задачи</h1>
+                <!-- <div class="pageBlock">
+                    <div class="my">Мои задачи</div>
+                    <div class="Mother">Задачи мамы</div>
+                    <div class="dad">Задачи папы</div>
+                </div> -->
+
+                <!-- <h1 class="mainTitle ">Задачи</h1> -->
+                 
+                <button class="defoltTasks getData btn-reset shadow">Получить данные</button>
+                <form action="/search" method="get" class="searchForm ">
+                    <input type="text" name="query" class="inputSearch shadow" placeholder="Поиск...">
+                    <button type="submit" class="btnSearch shadow">Искать</button>
+                </form>
             <div class="to-do-block">
                 <div class="blockAdd">
                     <div class="inputBlock">
-                        <input class="nameTask" type="text" placeholder="Введите задачу...">
+                        <input class="nameTask shadow" type="text" placeholder="Введите задачу...">
+                        <button class="btn shadow">Добавить</button>
                     </div>
                      <div class="bntBlock">
-                         <button class="btn">Добавить</button><i class="fa-solid fa-trash-can"></i>
+                         
                     </div>
                 </div>
             </div>
                 <div class="blockList">
-                    <ul class="list"></ul>
+                    <ul class="list "></ul>
                 </div>
             </div>
         </div>

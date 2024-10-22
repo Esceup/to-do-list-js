@@ -16,8 +16,8 @@
     background-size: contain; */
 }
 .blockAdd {
-    top: 55px;
-    position: absolute;
+    /* top: 55px;
+    position: absolute; */
     width: 100%;
     left: 5%;
     display: flex;
@@ -36,13 +36,18 @@
 }
 .blockList {
     width: 90%;
-    display: flex;
-    justify-content: center;
-    align-items: start;
-    top: 50px;
-    left: 5%;
-    position: absolute;
+    margin-top: 20px;
+    margin-left: 5%;
 }
+.inputSearch {
+    width: 100%;
+    height: 26px;
+    border-radius: 5px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border: 1px solid #ffffff;
+}
+
 input:focus {
     outline: none;
 }
@@ -51,10 +56,13 @@ input:focus {
     position: relative;
     margin-bottom: 15px;
     width: 100%;
-    padding: 5px 3px;
+    display: flex;
+    height: 25px;
+    padding: 5px 0px;
     border-radius: 5px;
     background-color: #fff;
     list-style-type: none;
+    
 }
 
 .blockList .list li:nth-child(2n) {
@@ -63,68 +71,96 @@ input:focus {
 .wrapperBlock{
 
     width: 50%;
-    height: 600px;
+    min-height: 600px;
     position: relative;
     left: 25%;
     margin-top: 50px;
     border: 2px solid #000;
     border-radius: 5px;
-    background-color: #8ab1b1;
+    background-color:#fff;
 }
 .bntBlock {
     margin-left: -81px;
 }
 .nameTask {
-    width: 100%;
+    width: 37%;
     height: 26px;
     border-radius: 5px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
     border: 1px solid #ffffff;
+    
+    
 }
 .inputBlock {
-    width: 90%;
+        display: flex;
+        width: 90%;
+        margin-top: 70px;
+        margin-left: 5%;
+        padding-bottom: 20px;
+        border-bottom: 2px solid #fff;
 }
 .list {
-    position: absolute;
-    top: 65px;
+    /* position: absolute;
+    top: 65px; */
     width: 100%;
     padding-left: 0;
     margin: 0;
 
 }
 .taskValue {
+    width: 100%;
+    margin-left: 10px;
+    line-height: 25px;
     font-size: 17px;
+    overflow: hidden;
 }
-.deleteTask {
-    position: absolute;
-    right: 10px;
-}
+/* .deleteTask {
+    
+} */
 .listItem:has(input:checked) .taskValue {
     opacity: 0.7;
     text-decoration: line-through;
 }
 
-.listItem:has(input:checked) {
-    background-color: #deffd4;
+.blockList .list .listItem:has(input:checked) {
+    opacity: 0.2;
+}
+.listItem img {
+    margin-left: 19px;
+    width: 22px;
+    margin-top: 5px;
+    opacity: 0.5;
+    right: 9px;
+    top: 0;
+    position: absolute;
+ }
+ 
+.list .listItem input {
+    margin-left: 8px;
+}
+.listItem {
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1), 0px 2px 4px rgba(0, 0, 0, 0.1), 0px 4px 8px rgba(0, 0, 0, 0.1), 0px 8px 16px rgba(0, 0, 0, 0.1);
 }
 
 .list li .btn {
-    top: 0px;
-    right: 0px;
+    width: 50px;
+    top: -5px;
+    position: relative;
     display: inline-block;
     box-sizing: border-box;
-    padding: 0 16px;
-    margin:0;
+    padding: 0px 20px 0 11px;
+    margin: 0;
     outline: none;
     border: none;
     border-radius: 4px;
-    height: 31px;
+    height: 35px;
     line-height: 30px;
     font-size: 12.5px;
     font-weight: normal;
     text-decoration: none;
     vertical-align: top;
     color: #55677d;
-    background-color: #ffcccc;
     cursor: pointer;
     user-select: none;
     appearance: none;
@@ -132,13 +168,37 @@ input:focus {
     overflow: hidden;
     border-top-left-radius: 0px;
     border-bottom-left-radius: 0px;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+}
+.searchForm {
+    width: 180px;
+    display: flex;
+    position: absolute;
+    top: 70px;
+    right: 5%;
+}
+.getData {
+    position: absolute;
+    top: 20px;
+    left: 5%;
+    
+}
+.shadow {
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1), 0px 2px 4px rgba(0, 0, 0, 0.1), 0px 4px 8px rgba(0, 0, 0, 0.1), 0px 8px 16px rgba(0, 0, 0, 0.1);
+}
+.pageBlock {
+    position: absolute;
+        top: 0px;
+        left: -10%;
 }
 
-.btn {
+.btn-reset {
     display: inline-block;
     box-sizing: border-box;
     padding: 0 16px;
-    margin: 0 15px 15px 0;
+    padding: 0px 10px 0 10px;
     outline: none;
     border: none;
     border-radius: 4px;
@@ -148,8 +208,60 @@ input:focus {
     font-weight: normal;
     text-decoration: none;
     vertical-align: top;
-    color: #55677d;
-    background-color: #dfe6ed;
+    color: #ffffff;
+        background-color: #007fff;
+    cursor: pointer;
+    user-select: none;
+    appearance: none;
+    touch-action: manipulation;
+    overflow: hidden;
+    /* border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px; */
+    margin: 0;
+}
+.btnSearch {
+    width: 82px;
+    display: inline-block;
+        box-sizing: border-box;
+        padding: 0 16px;
+        padding: 0px 20px 0 11px;
+        outline: none;
+        border: none;
+        border-radius: 4px;
+        height: 30px;
+        line-height: 30px;
+        font-size: 12.5px;
+        font-weight: normal;
+        text-decoration: none;
+        vertical-align: top;
+        color: #ffffff;
+            background-color: #007fff;
+        cursor: pointer;
+        user-select: none;
+        appearance: none;
+        touch-action: manipulation;
+        overflow: hidden;
+        border-top-left-radius: 0px;
+        border-bottom-left-radius: 0px;
+        margin: 0;
+        
+}
+.btn {
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 0 16px;
+    padding: 0px 15px 0 15px;
+    outline: none;
+    border: none;
+    border-radius: 4px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 12.5px;
+    font-weight: normal;
+    text-decoration: none;
+    vertical-align: top;
+    color: #ffffff;
+        background-color: #007fff;
     cursor: pointer;
     user-select: none;
     appearance: none;
@@ -157,7 +269,10 @@ input:focus {
     overflow: hidden;
     border-top-left-radius: 0px;
     border-bottom-left-radius: 0px;
+    margin: 0;
+    
 }
+
 
 .btn:focus-visible {
     box-shadow: 0 0 0 3px lightskyblue;
