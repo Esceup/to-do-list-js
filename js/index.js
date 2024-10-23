@@ -1,8 +1,8 @@
-const btnAdd = document.querySelector('.btn');
+const btnAdd = document.querySelector('.btnAddTask');
 const list = document.querySelector('.list');
 const nameTask = document.querySelector('.nameTask')
 const defoltTask = document.querySelector('.defoltTasks');
-
+const deleteList = document.querySelector('.deleteList');
 
 const getDefoltTasks = () => {
     const promiseObj = fetch('https://jsonplaceholder.typicode.com/todos');
@@ -16,14 +16,12 @@ const getDefoltTasks = () => {
         console.log('resul',result)
         addNewTasks(result)
     })
-
 }
 
 defoltTask.addEventListener('click', getDefoltTasks)
 
-
 const deleteTask = (event) => {
-    const taskItem = event.target.parentNode;
+    const taskItem = event.target.parentNode.parentNode;
     taskItem.remove();
 }
 
@@ -34,15 +32,26 @@ const addNewTasks = (tasks) => {
         taskEl.classList.add('listItem');
         taskEl.innerHTML = `<input type='checkbox' class='checkbox-todo select check'> 
         <span class="taskValue"> ${task?.title}</span> 
-        <button class='deleteTask btn btnDelete' disabled> Удалить</button >`;
+        <button class='deleteTask btn btnDelete' disabled><img src="./img/1.png"></button >`;
 
         const checkboxEl = taskEl.querySelector('.checkbox-todo');
         checkboxEl.checked = task.completed;
 
-        list.appendChild(taskEl);
+        const deleteBtn = taskEl.querySelector('.deleteTask');
+        deleteBtn.addEventListener('click', deleteTask);
+
+        list.prepend(taskEl);
+        
+        const check = taskEl.querySelector('.check');
+        const removeBtn = taskEl.querySelector('.btnDelete');
+        check.addEventListener('change', function () {
+            if (check.checked) {
+                removeBtn.disabled = false;
+            } else {
+                removeBtn.disabled = true;
+            }
+        });
     })
-
-
 }
 
 const addNewAction = () => {
@@ -57,7 +66,7 @@ const addNewAction = () => {
     task.innerHTML = `<input type='checkbox'  class='select check'> 
     <span class="taskValue"> ${nameTaskValue}</span> 
     
-    <button class='deleteTask btn btnDelete' disabled> <img src="/img/1.png"></button >`;
+    <button class='deleteTask btn btnDelete' disabled> <img src="./img/1.png"></button >`;
 
     const deleteBtn = task.querySelector('.deleteTask');
     deleteBtn.addEventListener('click', deleteTask);
@@ -69,7 +78,6 @@ const addNewAction = () => {
         list.prepend(task);
     }
    
-
     nameTask.value = '';
 
     const check = task.querySelector('.check');
@@ -83,9 +91,21 @@ const addNewAction = () => {
     });
     
 }
+const deleteAllTask = () => {
+    document.querySelector('.list').innerHTML = '';
+};
 
+deleteList.addEventListener('click', deleteAllTask);
 
 btnAdd.addEventListener('click', addNewAction);
 
-//remove - 
-//style - 
+const input = document.querySelector('#inputSearch')
+input.addEventListener("input", (e) => {
+    [...document.querySelectorAll(".list li")].forEach(item => {
+        if (item.textContent.toLowerCase().includes(e.target.value.toLowerCase())) {
+            item.style.display = "block";
+        } else {
+            item.style.display = "none";
+        }
+    });
+});

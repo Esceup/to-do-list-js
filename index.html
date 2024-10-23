@@ -21,15 +21,18 @@
                 <!-- <h1 class="mainTitle ">Задачи</h1> -->
                  
                 <button class="defoltTasks getData btn-reset shadow">Получить данные</button>
-                <form action="/search" method="get" class="searchForm ">
-                    <input type="text" name="query" class="inputSearch shadow" placeholder="Поиск...">
-                    <button type="submit" class="btnSearch shadow">Искать</button>
-                </form>
+                <div class="searchForm ">
+                    <input type="text" id="inputSearch" class="inputSearch shadow" placeholder="Поиск...">
+                    <!-- <button  class="btnSearch shadow">Искать</button> -->
+                </div>
             <div class="to-do-block">
+                
                 <div class="blockAdd">
                     <div class="inputBlock">
                         <input class="nameTask shadow" type="text" placeholder="Введите задачу...">
-                        <button class="btn shadow">Добавить</button>
+                        <button class="btnAddTask shadow">Добавить</button>
+                        <button class="deleteList shadow">Удалить всё</button>
+                        
                     </div>
                      <div class="bntBlock">
                          
